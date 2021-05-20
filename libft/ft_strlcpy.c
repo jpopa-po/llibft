@@ -1,39 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kiru <kiru@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/20 18:26:12 by kiru              #+#    #+#             */
-/*   Updated: 2021/05/20 18:26:14 by kiru             ###   ########.fr       */
+/*   Created: 2021/05/20 18:26:55 by kiru              #+#    #+#             */
+/*   Updated: 2021/05/20 18:29:08 by kiru             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"libft.h"
-char	*ft_strchr(const char *s, int c)
+size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {
-	char	*str;
+	size_t	i;
 
-	str = (char *)s;
-	while (*str != c)
+	i = 0;
+	if (size == 0)
 	{
-		if (*str == '\0')
-		{
-			return (NULL);
-		}
-		str++;
+		while (src[i])
+			i++;
+		return (i);
 	}
-	return (str);
+	while (i < size - 1 && src[i] != '\0')
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	if (i < size)
+		dest[i] = '\0';
+	while (src[i] != '\0')
+		i++;
+	return (i);
 }
-/*
-int	main(void)
-{
-	const char	str[] = "mubonico";
-	const char	ch = 'c';
-	char		*ret;
-
-	ret = ft_strchr(str, ch);
-	printf("|%c|==>>|%s|\n", ch, ret);
-	return (0);
-}*/

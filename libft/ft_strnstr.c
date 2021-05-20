@@ -1,39 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kiru <kiru@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/20 18:26:12 by kiru              #+#    #+#             */
-/*   Updated: 2021/05/20 18:26:14 by kiru             ###   ########.fr       */
+/*   Created: 2021/05/20 18:34:34 by kiru              #+#    #+#             */
+/*   Updated: 2021/05/20 18:55:00 by kiru             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"libft.h"
-char	*ft_strchr(const char *s, int c)
+char	*ft_strnstr(const char	*big, const char *little, size_t len)
 {
-	char	*str;
+	size_t	i;
+	size_t	j;
 
-	str = (char *)s;
-	while (*str != c)
+	i = 0;
+	if (*little == '\0')
+		return ((char *) big);
+	while (big[i] != '\0' && i < len)
 	{
-		if (*str == '\0')
+		j = 0;
+		while (big[i + j] == little[j] && i + j < len)
 		{
-			return (NULL);
+			j++;
+			if (little[j] == '\0')
+				return ((char *)&big[i]);
 		}
-		str++;
+		i++;
 	}
-	return (str);
-}
-/*
-int	main(void)
-{
-	const char	str[] = "mubonico";
-	const char	ch = 'c';
-	char		*ret;
-
-	ret = ft_strchr(str, ch);
-	printf("|%c|==>>|%s|\n", ch, ret);
 	return (0);
-}*/
+}
