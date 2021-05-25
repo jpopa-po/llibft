@@ -18,7 +18,7 @@ static int		ft_cont(int n)
 char	*ft_itoa(int n)
 {
 	int		neg;
-	size_t	len;
+	int	len;
 	char	*tab;
 
 	if (n < 0)
