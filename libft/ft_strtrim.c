@@ -1,43 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kiru <kiru@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/19 21:35:09 by jpopa-po          #+#    #+#             */
-/*   Updated: 2021/05/22 21:06:23 by kiru             ###   ########.fr       */
+/*   Created: 2021/05/22 21:07:13 by kiru              #+#    #+#             */
+/*   Updated: 2021/05/24 17:32:56 by kiru             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
-#include<stdlib.h>
-#include<stdio.h>
+#include "libft.h"
 
-char	*ft_strdup(const char *s)
+char	*ft_strtrim(char const *s)
 {
-	char	*cpy;
+	char	*str;
 	int		i;
+	int		j;
 	int		len;
 
-	len = ft_strlen(s);
 	i = 0;
-	cpy = (char *)malloc(sizeof(char) * len + 1);
-	if (!cpy || !s)
-		return (NULL);
-	while (len--)
-	{
-		cpy[i] = s[i];
+	j = 0;
+	len = ft_strlen(s) - 1;
+	str = ft_substr(s, i, len - j - i + 1);
+	while (s[i] == ' ' || s[i] == '\n' || s[i] == '\t')
 		i++;
+	while (s[len - j] == ' ' || s[len - j] == '\n' || s[len - j] == '\t')
+		j++;
+	if (i == 0 && j == 0)
+	{
+		str = ft_strdup(s);
+		return (str);
 	}
-	cpy[i] = '\0';
-	return (cpy);
+	if (i == len + 1)
+	{
+		str = "";
+		return (str);
+	}
+	if (!str)
+		return (NULL);
+	return (str);
 }
-/*
-int	main(void)
-{
-	char	ch[6] ="hello";
-	ft_strdup(ch);
-	printf("%s", ch);
-	return (0);
-}*/

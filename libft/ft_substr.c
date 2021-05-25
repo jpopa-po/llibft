@@ -1,43 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kiru <kiru@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/19 21:35:09 by jpopa-po          #+#    #+#             */
-/*   Updated: 2021/05/22 21:06:23 by kiru             ###   ########.fr       */
+/*   Created: 2021/05/22 20:32:14 by kiru              #+#    #+#             */
+/*   Updated: 2021/05/22 20:34:29 by kiru             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
-#include<stdlib.h>
-#include<stdio.h>
-
-char	*ft_strdup(const char *s)
+#include "libft.h"
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char	*cpy;
-	int		i;
-	int		len;
+	char			*str;
+	unsigned int	i;
+	unsigned int	j;
+	unsigned int	sl;
 
-	len = ft_strlen(s);
-	i = 0;
-	cpy = (char *)malloc(sizeof(char) * len + 1);
-	if (!cpy || !s)
+	str = malloc(sizeof(char) * (len + 1));
+	sl = ft_strlen(s);
+	if (!s)
 		return (NULL);
-	while (len--)
+	if (!str)
+		return (NULL);
+	i = start;
+	j = 0;
+	if (start < sl)
 	{
-		cpy[i] = s[i];
-		i++;
+		while (i < start + len && s[i] != '\0')
+		{
+			str[j] = s[i];
+			j++;
+			i++;
+		}
 	}
-	cpy[i] = '\0';
-	return (cpy);
+	str[j] = '\0';
+	return (str);
 }
-/*
-int	main(void)
-{
-	char	ch[6] ="hello";
-	ft_strdup(ch);
-	printf("%s", ch);
-	return (0);
-}*/

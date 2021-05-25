@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kiru <kiru@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: jpopa-po <jpopa-po@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 18:34:34 by kiru              #+#    #+#             */
-/*   Updated: 2021/05/20 18:55:00 by kiru             ###   ########.fr       */
+/*   Updated: 2021/05/25 12:04:07 by jpopa-po         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ char	*ft_strnstr(const char	*big, const char *little, size_t len)
 		j = 0;
 		while (big[i + j] == little[j] && i + j < len)
 		{
-			j++;
 			if (little[j] == '\0')
 				return ((char *)&big[i]);
+			j++;
 		}
 		i++;
 	}

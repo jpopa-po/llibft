@@ -1,43 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kiru <kiru@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/19 21:35:09 by jpopa-po          #+#    #+#             */
-/*   Updated: 2021/05/22 21:06:23 by kiru             ###   ########.fr       */
+/*   Created: 2021/05/22 20:36:23 by kiru              #+#    #+#             */
+/*   Updated: 2021/05/22 20:39:00 by kiru             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
-#include<stdlib.h>
-#include<stdio.h>
+#include "libft.h"
 
-char	*ft_strdup(const char *s)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char	*cpy;
+	size_t	len;
+	size_t	len2;
 	int		i;
-	int		len;
+	int		j;
+	char	*str;
 
-	len = ft_strlen(s);
+	len = ft_strlen(s1);
+	len2 = ft_strlen(s2);
 	i = 0;
-	cpy = (char *)malloc(sizeof(char) * len + 1);
-	if (!cpy || !s)
+	str = malloc(sizeof(char) * (len + len2 + 1));
+	if (!s1 || !s2 || !str)
 		return (NULL);
-	while (len--)
-	{
-		cpy[i] = s[i];
-		i++;
-	}
-	cpy[i] = '\0';
-	return (cpy);
+	j = 0;
+	while (s1[i])
+		str[i++] = s1[j++];
+	j = 0;
+	while (s2[j])
+		str[i++] = s2[j++];
+	str[i] = '\0';
+	return (str);
 }
-/*
-int	main(void)
-{
-	char	ch[6] ="hello";
-	ft_strdup(ch);
-	printf("%s", ch);
-	return (0);
-}*/
+//comp que if null str

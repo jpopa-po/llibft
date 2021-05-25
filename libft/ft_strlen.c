@@ -1,43 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kiru <kiru@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/19 21:35:09 by jpopa-po          #+#    #+#             */
-/*   Updated: 2021/05/22 21:06:23 by kiru             ###   ########.fr       */
+/*   Created: 2021/05/22 21:00:08 by kiru              #+#    #+#             */
+/*   Updated: 2021/05/22 21:02:05 by kiru             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
-#include<stdlib.h>
-#include<stdio.h>
+#include "libft.h"
 
-char	*ft_strdup(const char *s)
+size_t	ft_strlen(const char *str)
 {
-	char	*cpy;
-	int		i;
-	int		len;
+	size_t	i;
 
-	len = ft_strlen(s);
 	i = 0;
-	cpy = (char *)malloc(sizeof(char) * len + 1);
-	if (!cpy || !s)
-		return (NULL);
-	while (len--)
-	{
-		cpy[i] = s[i];
+	while (str[i] != '\0')
 		i++;
-	}
-	cpy[i] = '\0';
-	return (cpy);
+	return (i);
 }
-/*
-int	main(void)
-{
-	char	ch[6] ="hello";
-	ft_strdup(ch);
-	printf("%s", ch);
-	return (0);
-}*/

@@ -6,7 +6,7 @@
 /*   By: jpopa-po <jpopa-po@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 16:42:44 by jpopa-po          #+#    #+#             */
-/*   Updated: 2021/05/19 21:33:30 by jpopa-po         ###   ########.fr       */
+/*   Updated: 2021/05/24 18:51:33 by jpopa-po         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 		ft_memcpy(ccd, ccs, n);
 	return (ccd);
 }
-/*
+
 int	main(void)
 {
 	char		dest[] = "old";
@@ -42,4 +42,4 @@ int	main(void)
 	printf("After memmove = %s | src = %s\n", dest, src);
 	return (0);
 }
-*/
+

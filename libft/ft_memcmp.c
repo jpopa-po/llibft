@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jpopa-po <jpopa-po@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kiru <kiru@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 21:30:29 by jpopa-po          #+#    #+#             */
-/*   Updated: 2021/05/19 21:33:23 by jpopa-po         ###   ########.fr       */
+/*   Updated: 2021/05/22 20:21:31 by kiru             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	return (str1[i] - str2[i]);
 }
 /*
+exist
 int	main(void)
 {
 	char	str1[15];
