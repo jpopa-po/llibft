@@ -15,10 +15,26 @@ static int		ft_cont(int n)
 	return (count);
 }
 
+
+static int		ft_cont(int n)
+{
+	int	count;
+
+	count = 0;
+	if (n == 0)
+		return (1);
+	while (n > 0)
+	{
+		n /= 10;
+		count++;
+	}
+	return (count);
+}
+
 char	*ft_itoa(int n)
 {
 	int		neg;
-	int	len;
+	int		len;
 	char	*tab;
 
 	if (n < 0)
@@ -28,7 +44,7 @@ char	*ft_itoa(int n)
 	if (neg == 1)
 		n *= -1;
 	else
-		n;
+		n *= 1;
 	len = ft_cont(n);
 	tab = (char *)malloc(sizeof(char) * len + neg + 1);
 	if (n == -2147483648)
@@ -44,6 +60,6 @@ char	*ft_itoa(int n)
 	if (neg == 1)
 		tab[0] = '-';
 	else
-		tab[0];
+		tab[0] = '';
 	return (tab);
 }
