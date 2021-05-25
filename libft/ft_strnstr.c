@@ -6,7 +6,7 @@
 /*   By: jpopa-po <jpopa-po@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 18:34:34 by kiru              #+#    #+#             */
-/*   Updated: 2021/05/25 12:04:07 by jpopa-po         ###   ########.fr       */
+/*   Updated: 2021/05/25 14:46:25 by jpopa-po         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,23 @@
 char	*ft_strnstr(const char	*big, const char *little, size_t len)
 {
 	size_t	i;
-	size_t	j;
+	size_t	c;
+	size_t	len2;
+	char	*tab;
 
 	i = 0;
-	if (*little == '\0')
-		return ((char *) big);
-	while (big[i] != '\0' && i < len)
+	tab = (char *)big;
+	len2 = ft_strlen(little);
+	if (len2 == 0 || big == little)
+		return (tab);
+	while (tab[i] != '\0' && i < len)
 	{
-		j = 0;
-		while (big[i + j] == little[j] && i + j < len)
-		{
-			if (little[j] == '\0')
-				return ((char *)&big[i]);
-			j++;
-		}
+		c = 0;
+		while (tab[i + c] != '\0' && little[c] != '\0'
+			&& tab[i + c] == little[c] && i + c < len)
+			c++;
+		if (c == len2)
+			return (tab + i);
 		i++;
 	}
 	return (0);

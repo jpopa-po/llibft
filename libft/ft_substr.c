@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kiru <kiru@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: jpopa-po <jpopa-po@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/22 20:32:14 by kiru              #+#    #+#             */
-/*   Updated: 2021/05/22 20:34:29 by kiru             ###   ########.fr       */
+/*   Updated: 2021/05/25 14:23:26 by jpopa-po         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	unsigned int	sl;
 
 	str = malloc(sizeof(char) * (len + 1));
-	sl = ft_strlen(s);
 	if (!str || !s)
 		return (NULL);
+	sl = ft_strlen(s);
 	i = start;
 	j = 0;
 	if (start < sl)

@@ -1,22 +1,6 @@
 #include"libft.h"
 
-static int		ft_cont(int n)
-{
-	int	count;
-
-	count = 0;
-	if (n == 0)
-		return (1);
-	while (n > 0)
-	{
-		n /= 10;
-		count++;
-	}
-	return (count);
-}
-
-
-static int		ft_cont(int n)
+static int	ft_cont(int n)
 {
 	int	count;
 

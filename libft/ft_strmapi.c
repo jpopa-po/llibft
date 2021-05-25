@@ -5,8 +5,10 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	char	*tab;
 	int		i;
 
+	if (!s)
+		return (NULL);
 	tab = malloc(sizeof(char) * (ft_strlen(s) + 1));
-	if (!s || (!tab))
+	if (!tab)
 		return (NULL);
 	i = 0;
 	while (s[i])

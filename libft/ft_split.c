@@ -6,13 +6,13 @@
 /*   By: jpopa-po <jpopa-po@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/22 20:43:10 by kiru              #+#    #+#             */
-/*   Updated: 2021/05/25 12:06:01 by jpopa-po         ###   ########.fr       */
+/*   Updated: 2021/05/25 13:58:59 by jpopa-po         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static	int		ft_count_w(const char *s, char c)
+static	int	ft_count_w(const char *s, char c)
 {
 	int	word;
 	int	i;
@@ -53,7 +53,7 @@ static	char	*ft_put_w(const char *s, char c, int *i)
 	return (str);
 }
 
-char			**ft_strsplit(const char *s, char c)
+char	**ft_split(const char *s, char c)
 {
 	int		i;
 	int		j;
@@ -64,7 +64,7 @@ char			**ft_strsplit(const char *s, char c)
 	j = 0;
 	word = ft_count_w(s, c);
 	str = (char **)malloc(sizeof(s) * (ft_count_w(s, c) + 2));
-	if (!str)
+	if (!str || !s)
 		return (NULL);
 	while (s[i] == c && s[i])
 		i++;

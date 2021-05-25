@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kiru <kiru@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: jpopa-po <jpopa-po@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 16:25:12 by jpopa-po          #+#    #+#             */
-/*   Updated: 2021/05/22 20:52:13 by kiru             ###   ########.fr       */
+/*   Updated: 2021/05/25 14:28:35 by jpopa-po         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	s1 = (unsigned char *)dest;
 	s2 = (unsigned char *)src;
 	i = 0;
+	if (n == 0 || s1 == s2)
+		return (s1);
 	while (n-- != 0)
 	{
 		s1[i] = s2[i];

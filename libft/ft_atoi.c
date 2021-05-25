@@ -2,8 +2,8 @@
 int	ft_atoi(const char *nptr)
 {
 	long	n;
-	int		i;
-	int		sign;
+	long	i;
+	long	sign;
 
 	n = 0;
 	i = 0;
@@ -15,9 +15,15 @@ int	ft_atoi(const char *nptr)
 		sign = -1;
 		i++;
 	}
-	else if (nptr[i] == 43)
+	else if (nptr[i] == 43 || nptr[i] == 45)
 		i++;
 	while (nptr[i] && ft_isdigit(nptr[i]) == 1)
-		n = n * 10 + nptr[i++] - 48;
+	{
+		n = n * 10 + (nptr[i++] - 48);
+		if ((n * sign) > 2147483647)
+			return (-1);
+		if ((n * sign) < -2147483648)
+			return (0);
+	}
 	return (sign * n);
 }
