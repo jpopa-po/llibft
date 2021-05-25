@@ -60,6 +60,6 @@ char	*ft_itoa(int n)
 	if (neg == 1)
 		tab[0] = '-';
 	else
-		tab[0] = '';
+		tab[0] = tab[0];
 	return (tab);
 }
