@@ -14,7 +14,7 @@
 
 char	*ft_strtrim(char const *s)
 {
-	char	*str;
+	char		*str;
 	int		i;
 	int		j;
 	int		len;
@@ -23,9 +23,11 @@ char	*ft_strtrim(char const *s)
 	j = 0;
 	len = ft_strlen(s) - 1;
 	str = ft_substr(s, i, len - j - i + 1);
-	while (s[i] == ' ' || s[i] == '\n' || s[i] == '\t')
+	if (!str)
+		return (NULL);
+	while (s[i] == 32 || s[i] == 10 || s[i] == 9)
 		i++;
-	while (s[len - j] == ' ' || s[len - j] == '\n' || s[len - j] == '\t')
+	while (s[len - j] == 32 || s[len - j] == 10 || s[len - j] == 9)
 		j++;
 	if (i == 0 && j == 0)
 	{
@@ -37,7 +39,5 @@ char	*ft_strtrim(char const *s)
 		str = "";
 		return (str);
 	}
-	if (!str)
-		return (NULL);
 	return (str);
 }
