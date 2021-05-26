@@ -21,18 +21,15 @@ char	*ft_itoa(int n)
 	int		len;
 	char	*tab;
 
-	if (n < 0)
-		neg = 1;
-	else
-		neg = 0;
-	if (neg == 1)
-		n *= -1;
-	else
-		n *= 1;
-	len = ft_cont(n);
-	tab = (char *)malloc(sizeof(char) * len + neg + 1);
 	if (n == -2147483648)
 		return (ft_strdup("-2147483648"));
+	neg = 0;
+	if (n < 0)
+		neg = 1;
+	if (neg == 1)
+		n *= -1;
+	len = ft_cont(n);
+	tab = (char *)malloc(sizeof(char) * len + neg + 1);
 	if (!tab)
 		return (NULL);
 	tab[len + neg] = '\0';
@@ -43,7 +40,11 @@ char	*ft_itoa(int n)
 	}
 	if (neg == 1)
 		tab[0] = '-';
-	else
-		tab[0] = tab[0];
 	return (tab);
 }
+/*
+int main(void)
+{
+	printf("%s\n", ft_itoa(-8));
+	return (0);
+}*/

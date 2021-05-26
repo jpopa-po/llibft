@@ -3,54 +3,50 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kiru <kiru@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: jpopa-po <jpopa-po@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 17:53:56 by kiru              #+#    #+#             */
-/*   Updated: 2021/05/20 18:00:19 by kiru             ###   ########.fr       */
+/*   Updated: 2021/05/26 20:43:31 by jpopa-po         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"libft.h"
 size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {
+	size_t	k;
+	size_t	len;
 	size_t	i;
 	size_t	j;
 
-	i = 0;
-	j = 0;
-	while (dest[i])
-		i++;
-	if (size < i)
+	k = 0;
+	len = ft_strlen(dest);
+	if (len < size)
 	{
-		while (src[j])
-			j++;
-		return (size + j);
+		i = ft_strlen(src) + len;
+		if (size > i + 1)
+			j = i + 1;
+		else
+			j = size;
+		while (k + 1 < j - len)
+		{
+			dest[len + k] = src[k];
+			k++;
+		}
+		dest[len + k] = '\0';
 	}
-	while (size > 0 && i < size - 1 && src[j])
-		dest[i++] = src[j++];
-	dest[i] = '\0';
-	while (src[j++])
-		i++;
+	else
+		i = ft_strlen(src) + size;
 	return (i);
 }
 /*
 int main(void)
 {
-	char first[] = "This is ";
-	char last[] = "a potentially long string";
-	int r;
-	int size = 16;
-	char buffer[size];
-
-	strcpy(buffer,first);
-	r = ft_strlcat(buffer,last,size);
-
-	puts(buffer);
-	printf("Value returned: %d\n",r);
-	if( r > size )
-		puts("String truncated");
-	else
-		puts("String was fully copied");
-
+		char *dest;
+		dest =
+		memset(dest, 'r', 15);
+		ft_print_result(ft_strlcat(dest, "lorem ipsum dolor sit amet", 5));
+		write(1, "\n", 1);
+		write(1, dest, 15);
 	return(0);
-}*/
+}
+*/
