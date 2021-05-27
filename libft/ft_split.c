@@ -91,7 +91,7 @@ char	**ft_split(const char *s, char c)
 	return (str);
 }
 
-void	probar_split(char *str, char charset)
+/*void	probar_split(char *str, char charset)
 {
 	char	**tab;
 	int		i;
@@ -109,4 +109,4 @@ void	probar_split(char *str, char charset)
 // {
 	// probar_split("lorem ipsum dolor sit arisus. Suspendisse ", ' ');
 	// return (0);
-// }
+// }*/
