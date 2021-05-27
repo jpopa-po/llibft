@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcchr.c                                       :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kiru <kiru@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: jpopa-po <jpopa-po@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 18:32:10 by kiru              #+#    #+#             */
-/*   Updated: 2021/05/20 18:55:06 by kiru             ###   ########.fr       */
+/*   Updated: 2021/05/27 15:59:28 by jpopa-po         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"libft.h"
 char	*ft_strrchr(const char *s, int c)
 {
-	char	*str;
+	int		len;
+	char	*ptr;
 
-	str = NULL;
-	while (*s != '\0')
+	ptr = (char *)s;
+	len = ft_strlen(s) + 1;
+	while (len > 0)
 	{
-		if (*s == c)
-			str = (char *)s;
-		s++;
+		if (*(ptr + --len) == (char)c)
+			return (ptr + len);
 	}
-	if (c == '\0')
-		return ((char *)s);
-	return (str);
+	return (NULL);
 }

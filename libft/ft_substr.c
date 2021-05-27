@@ -6,33 +6,28 @@
 /*   By: jpopa-po <jpopa-po@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/22 20:32:14 by kiru              #+#    #+#             */
-/*   Updated: 2021/05/25 14:23:26 by jpopa-po         ###   ########.fr       */
+/*   Updated: 2021/05/27 15:57:37 by jpopa-po         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_substr(const char *s, unsigned int start, size_t len)
 {
-	char			*str;
-	unsigned int	i;
-	unsigned int	j;
-	unsigned int	sl;
+	char	*aux;
+	char	*str;
 
-	str = malloc(sizeof(char) * (len + 1));
-	if (!str || !s)
+	if (!s)
 		return (NULL);
-	sl = ft_strlen(s);
-	i = start;
-	j = 0;
-	if (start < sl)
-	{
-		while (i < start + len && s[i] != '\0')
-		{
-			str[j] = s[i];
-			j++;
-			i++;
-		}
-	}
-	str[j] = '\0';
+	if (start > ft_strlen(s) - 1)
+		return (ft_strdup(""));
+	if (len > ft_strlen(s) - start - 1)
+		len = ft_strlen(s) - start ;
+	str = (char *)malloc((len + 1) * sizeof(char));
+	if (!str)
+		return (NULL);
+	aux = str;
+	while (len-- > 0 && *(s + start))
+		*aux++ = *(s++ + start);
+	*aux = '\0';
 	return (str);
 }

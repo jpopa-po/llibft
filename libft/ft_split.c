@@ -6,11 +6,21 @@
 /*   By: jpopa-po <jpopa-po@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/22 20:43:10 by kiru              #+#    #+#             */
-/*   Updated: 2021/05/25 13:58:59 by jpopa-po         ###   ########.fr       */
+/*   Updated: 2021/05/27 20:02:07 by jpopa-po         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+size_t	ft_strlen2(const char *str, char c, size_t i)
+{
+	int	init;
+
+	init = i;
+	while (str[i] != '\0' && str[i] != c)
+		i++;
+	return (i - init);
+}
 
 static	int	ft_count_w(const char *s, char c)
 {
@@ -21,14 +31,16 @@ static	int	ft_count_w(const char *s, char c)
 	word = 0;
 	if (!s)
 		return (0);
+	if (s[0] != c)
+		word++;
 	while (s[i])
 	{
-		if (s[i] == c && s[i + 1] != c)
+		if (s[i] == c && s[i + 1] != c && s[i + 1] != '\0')
 			word++;
 		i++;
 	}
-	if (s[0] != '\0')
-		word++;
+	if (word == 0)
+		return (1);
 	return (word);
 }
 
@@ -37,7 +49,7 @@ static	char	*ft_put_w(const char *s, char c, int *i)
 	char	*str;
 	int		k;
 
-	str = (char *)malloc(sizeof(s) * (ft_strlen(s)));
+	str = (char *)malloc(sizeof(char) * (ft_strlen2(s, c, *i) + 1));
 	if (!str)
 		return (NULL);
 	k = 0;
@@ -63,8 +75,10 @@ char	**ft_split(const char *s, char c)
 	i = 0;
 	j = 0;
 	word = ft_count_w(s, c);
-	str = (char **)malloc(sizeof(s) * (ft_count_w(s, c) + 2));
-	if (!str || !s)
+	if (!s)
+		return (NULL);
+	str = (char **)malloc(sizeof(char *) * (ft_count_w(s, c) + 1));
+	if (!str)
 		return (NULL);
 	while (s[i] == c && s[i])
 		i++;
@@ -76,3 +90,23 @@ char	**ft_split(const char *s, char c)
 	str[j] = NULL;
 	return (str);
 }
+
+void	probar_split(char *str, char charset)
+{
+	char	**tab;
+	int		i;
+
+	tab = ft_split(str, charset);
+	i = 0;
+	while (tab[i])
+	{
+		printf("%s\n", tab[i]);
+		i++;
+	}
+}
+
+// int	main(void)
+// {
+	// probar_split("lorem ipsum dolor sit arisus. Suspendisse ", ' ');
+	// return (0);
+// }
