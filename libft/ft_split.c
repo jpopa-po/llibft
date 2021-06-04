@@ -6,13 +6,13 @@
 /*   By: jpopa-po <jpopa-po@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/22 20:43:10 by kiru              #+#    #+#             */
-/*   Updated: 2021/05/27 20:02:07 by jpopa-po         ###   ########.fr       */
+/*   Updated: 2021/05/31 20:31:36 by jpopa-po         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	ft_strlen2(const char *str, char c, size_t i)
+size_t	ft_strlen2(const char *str, char c, size_t i)
 {
 	int	init;
 
@@ -91,7 +91,7 @@ char	**ft_split(const char *s, char c)
 	return (str);
 }
 
-/*void	probar_split(char *str, char charset)
+/*void	ft_try(char *str, char charset)
 {
 	char	**tab;
 	int		i;
@@ -107,6 +107,6 @@ char	**ft_split(const char *s, char c)
 
 // int	main(void)
 // {
-	// probar_split("lorem ipsum dolor sit arisus. Suspendisse ", ' ');
+	// ft_try("lorem ipsum dolor sit arisus. Suspendisse ", ' ');
 	// return (0);
 // }*/

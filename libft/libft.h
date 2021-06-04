@@ -7,34 +7,33 @@
 # include <stddef.h>
 # include <unistd.h>
 void	*ft_memset(void *s, int c, size_t n);
-//rellena zona de memoria con bytes repetidos
+//fill memory with repeated bytes
 void	ft_bzero(void *s, size_t n);
-//establece primeros n bytes de una cadena a 0
+//establishes the first n bytes of a stryng to 0
 void	*ft_memcpy(void *dest, const void *src, size_t n);
-//copia n bytes de src a dest
+//copy n bytes from src to dest
 void	*ft_memccpy(void *dest, const void *src, int c, size_t n);
-//copia como maximo n bytes de orig a dest hasta que encuentra el int c
+//copy n bytes as max from src to dest till it finds c
 void	*ft_memmove(void *dest, const void *src, size_t n);
-//copia n bytes de src a dest(revisar un swap) (superposición)
+//move n bytes from src to dest(swap) (superposition)
 void	*ft_memchr(const void *s, int c, size_t n);
-// n bytes iniciales de *s y se interpretan como caraccteres sin signo
+// first n bytes from *s and it become unsigned char
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
-//compara los primeros n bytes de *s1 y s*2
+//compare the first n bytes of *s1 and *s2
 size_t	ft_strlen(const char *s);
-//calcula tamaño de *s
+//size of *s
 size_t	ft_strlcpy(char *dest, const char *src, size_t size);
 size_t	ft_strlcat(char *dest, const char *src, size_t size);
-//a diferencia de los n, chupan todo el espacio del buff
+//unlike the ncat takes all the space from buff
 char	*ft_strchr(const char *s, int c);
-//devuelve la primera aparicion de c en *a
+//return the first ocurrence of c in *s
 void	*ft_calloc(size_t nmemb, size_t size);
-//si uno de estos args es 0, devuelve null. asigna espacio no usado a
-//nmemb cada uno del tamaño size
+//if one of these args arre 0, it returns nuull. Establishes non uses space to a
+//nmemb each one of size
 char	*ft_strdup(const char *s);
-//duplica *s
+//duplicate *s
 char	*ft_strrchr(const char *s, int c);
-//devuelve un puntero a la ultima coincidencia de la
-//c cadena s. el int es el numero
+//returns a pointer for the last ocurrence of c in s
 char	*ft_strnstr(const char	*big, const char *little, size_t len);
 //https://www.unix.com/man-page/suse/9/strnstr
 int		ft_strncmp(const char *s1, const char *s2, size_t n);

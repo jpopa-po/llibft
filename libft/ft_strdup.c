@@ -3,16 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kiru <kiru@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: jpopa-po <jpopa-po@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 21:35:09 by jpopa-po          #+#    #+#             */
-/*   Updated: 2021/05/22 21:06:23 by kiru             ###   ########.fr       */
+/*   Updated: 2021/06/03 19:58:15 by jpopa-po         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"libft.h"
 #include<stdlib.h>
-#include<stdio.h>
 
 char	*ft_strdup(const char *s)
 {
