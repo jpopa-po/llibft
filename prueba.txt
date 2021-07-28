@@ -1,0 +1,4 @@
+has leido la 1 linea
+has leido bien la 2.
+
+fin!!
